@@ -1,0 +1,364 @@
+body {
+  color: black;
+  font-family: "open sans";
+  background-color: white;
+  overflow: hidden;
+}
+
+body .page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+  overflow-y: visible;
+  overflow-x: hidden;
+}
+
+body .header-mobile {
+  height: 52px;
+  background: #1c1c1c;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  body .header-mobile {
+    display: block;
+    z-index: 140;
+  }
+}
+
+body nav {
+  width: 250px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 130;
+  -webkit-transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+body nav #sidopanel {
+  background: #262626;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  z-index: 34;
+  height: 100vh;
+  width: 250px;
+  padding-bottom: 60px;
+  position: relative;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  transition: all 350ms ease;
+}
+
+body nav .search {
+  position: relative;
+}
+
+body nav .search form {
+  padding: 9px 30px;
+  background-color: #1c1c1c;
+  overflow: hidden;
+}
+
+body nav .search form input {
+  background-color: #1c1c1c;
+  border: none;
+  color: white;
+  float: left;
+  padding: 0;
+  width: 80%;
+}
+
+body nav .search form input[type="number"] input[type="text"], body nav .search form input[type="email"], body nav .search form input[type="tel"], body nav .search form input[type="number"], body nav .search form input[type="search"], body nav .search form textarea {
+  box-sizing: border-box;
+  display: inline-block;
+  border: none;
+  padding: 0 0.8125em;
+  height: 2.4375em;
+  position: relative;
+  vertical-align: middle;
+  background: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+  appearance: none;
+}
+
+body nav .logga {
+  display: block;
+  padding: 20px 20px 25px 20px;
+  border: none;
+  color: #fff;
+  background: none;
+}
+
+body nav .logga img {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 250px;
+}
+
+body nav .menu .main_nav {
+  list-style: none;
+  padding: 0px;
+}
+
+body nav .menu .main_nav .current-menu-item a {
+  color: red;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  text-align: left;
+  font-weight: 400;
+  font-size: 17px;
+  padding: 0px 30px;
+  border-bottom: none;
+  line-height: 55px;
+  position: relative;
+}
+
+body nav .menu .main_nav li {
+  padding: 10px 0px;
+  color: blue;
+}
+
+body nav .menu .main_nav li a {
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  text-align: left;
+  font-weight: 400;
+  font-size: 17px;
+  color: #fff;
+  padding: 0px 30px;
+  border-bottom: none;
+  line-height: 55px;
+  position: relative;
+}
+
+body nav .social {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: row;
+  padding: 0px 30px;
+}
+
+body nav .social i {
+  font-size: 25px;
+  flex-basis: 15%;
+  color: white;
+}
+
+body nav .partners {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  -webkit-flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+body nav .partners .partner {
+  display: block;
+  height: auto;
+  flex-basis: 33%;
+}
+
+body nav .partners .partner img {
+  max-width: 100px;
+}
+
+@media (min-width: 1400px) {
+  body nav {
+    left: 0%;
+  }
+}
+
+@media (max-width: 1400px) {
+  body nav {
+    left: 1%;
+  }
+}
+
+body .site-content {
+  overflow: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  outline: none;
+  left: 250px;
+  z-index: 30;
+  color: #1c1c1c;
+  background: #fff;
+  -webkit-transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  -moz-transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+body .site-content .banner {
+  padding: 0px 30px;
+}
+
+body .site-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+body .site-content .text {
+  padding: 30px;
+}
+
+body .container #content {
+  position: realative;
+  font-family: "open sans";
+}
+
+body .container #content .text {
+  z-index: 999;
+  position: relative;
+  padding-top: 100px;
+  color: white;
+  width: 80%;
+  margin: auto;
+}
+
+body .container #content .text h1 {
+  font-family: "open sans";
+  font-family: inherit;
+  text-align: center;
+  font-size: 50px;
+  position: relative;
+  margin: 0px;
+  margin-bottom: 50px;
+  text-transform: uppercase;
+}
+
+body .container #content .text h1:before {
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  bottom: 0px;
+  height: 2px;
+  width: 50px;
+  margin: auto;
+  background-color: red;
+}
+
+body .container #content .text h1:after {
+  content: "";
+  margin: auto;
+  position: absolute;
+  background-color: red;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  height: 2px;
+  width: 50px;
+}
+
+body .container #content .blurarea {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 15px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+body .container #content .blurarea .blurcontainer {
+  position: relative;
+}
+
+body .container #content .blurarea .blurcontainer .textarea {
+  /* Put this on top of the blurred layer */
+  position: relative;
+  color: white;
+  z-index: 100;
+  padding: 20px;
+  background: #222222;
+  /* for IE */
+  background: rgba(34, 34, 34, 0.75);
+}
+
+body .container #content .blurarea .blurcontainer .blur-bg {
+  background-image: url("http://localhost:8080/design/wp-content/uploads/2016/09/AdobeStock_40515377.jpeg");
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  z-index: 99;
+  background-position: center -70px;
+  -webkit-filter: blur(10px);
+  filter: url(/media/blur.svg#blur);
+  filter: blur(10px);
+}
+
+body .container #content .text-section {
+  margin: 30px 0px;
+}
+
+body .container #content p {
+  font-size: 18px;
+  line-height: 20px;
+  font-family: "open sans";
+}
+
+body .container #content .banner {
+  background-position: 50%;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+body .container #content .banner img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body .container #content .tjanst-flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+body .container #content .tjanst-flex .tjanst {
+  flex-basis: 33%;
+  padding: 10px;
+}
+
+body .container #content .tjanst-flex .tjanst img {
+  width: 100%;
+  height: auto;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  height: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: red;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+/**/
