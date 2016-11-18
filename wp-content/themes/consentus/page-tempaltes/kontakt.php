@@ -179,9 +179,10 @@ $(document).ready(function(){
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-				<h1><?php ?></h1>
+				<h1 class="page-title"><?php the_field('page-title'); ?></h1>
+				<p class="page-title">Hör av er till os på gävle vvs så återkommer vi inom kort</p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-12">
 					<div class="kontakt-info">
 			<?php
 				if ( have_posts() ) {
@@ -200,15 +201,19 @@ $(document).ready(function(){
 				<?php $query8 = new WP_Query(array( 'post_type' => 'arbetare', 'post_per_page' => -1) );
 				//print_r($query8);
 				while ( $query8->have_posts() ) : $query8->the_post(); ?>
-				<div class="coworker">
-					<?php the_post_thumbnail('medium')?>
-					<?php the_title('<h4>', '</h4>');  ?>
+				<div class="coworker col-md-4 col-sm-4 col-xs-6">
+					<div class="coworker-img" style="background-image:url('<?php the_post_thumbnail_url('medium'); ?>')">
+					</div>
+					<div class="coworker-content">
+					<?php the_title('<h4 class="coworker-title">', '</h4>');  ?>
 					<?php the_content();?>
+				</div>
 				</div>
 				<?php endwhile; wp_reset_postdata();?>
 				<div class="clearfix"></div>
 			</div>
 			</div>
+			<div class="col-md-4"></div>
 		<div class="col-md-6">
 		<div class="box-wrap">
 

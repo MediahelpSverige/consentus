@@ -1,9 +1,9 @@
-<?php 
+<?php
 
 get_header();
 ?>
 
-<section class="banner" style="background-image: url('<?php the_post_thumbnail_url( 'full' ); ?>')">
+<section class="banner"class="parallax-window" data-iosFix="false" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url( 'full' ); ?>">
 <div class="overlay"></div>
 <div class="container">
 	<div class="header-logo">
@@ -18,10 +18,10 @@ get_header();
 <section class="section-white single">
 <div class="container-wrap">
 	<div class="container">
-		<?php 
+		<?php
 			if ( have_posts() ) {
 				while ( have_posts() ) {
-					the_post(); 
+					the_post();
 					//
 					// Post Content here
 					the_title('<h1>','</h1>');
