@@ -12,19 +12,13 @@
 <!-- Optional theme -->
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/custom.css">
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/responsive.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-
-<!--OWL-->
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/owl.carousel.css">
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/owl.transitions.css">
-<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/owl.theme.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700|Cardo|Crimson+Text:400,400italic,700' rel='stylesheet' type='text/css'>
-
-<script src="<?php bloginfo( 'template_url' ); ?>/js/owl.carousel.min.js"></script>
 <script src="//use.edgefonts.net/passion-one:n4,n7,n9;neuton;source-sans-pro.js"></script>
 <script src="<?php bloginfo('template_url'); ?>/bin/app.bundle.js" charset="utf-8"></script>
 

@@ -14,8 +14,8 @@ get_header();
 
 </div>
 
-<div class="site-title">
-	<h1><?php the_field('sidtitel'); ?></h1>
+<div class="site-title animated fadeInUp">
+	<h1 class=""><?php the_field('sidtitel'); ?></h1>
 	<div class="cta">
 		<a href="tel:030403"><i class="fa fa-phone" aria-hidden="true"></i><h2>Ring oss idag: 08-702 01 81</h2></a>
 	</div>
