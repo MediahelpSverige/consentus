@@ -4,12 +4,11 @@ Template name: kontakt
 */
 get_header();
 ?>
-<script src="<?php bloginfo( 'template_url' ); ?>/src/js/map.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGCZgUR-m108imr_y_SsntCRvQ8MgHcP0&callback=initMap"
+<script src="<?php bloginfo( 'template_url' ); ?>/dist/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGCZgUR-m108imr_y_SsntCRvQ8MgHcP0&libraries=places&callback=initMap"
     async defer></script>
 <div class="map-banner">
 	<div id="map"></div>
-
 
 <div class="container">
 	<div class="header-logo">
@@ -56,6 +55,7 @@ get_header();
 				<?php endwhile; wp_reset_postdata();?>
 				<div class="clearfix"></div>
 			</div>
+
 			</div>
 
 			<div class="col-md-4">
