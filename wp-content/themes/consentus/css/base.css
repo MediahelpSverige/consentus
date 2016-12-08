@@ -1,0 +1,221 @@
+header#top-menu {
+  position: fixed;
+  height: 75px; }
+  header#top-menu .flexwrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 95%;
+    margin: auto;
+    font-size: 14px; }
+  header#top-menu .site_nav li {
+    padding: 0px 20px; }
+    header#top-menu .site_nav li a {
+      font-size: 14px; }
+  header#top-menu #logo-wrap {
+    height: 75px;
+    background-color: #2179d2; }
+  header#top-menu .top-header-logo img {
+    max-height: 45px;
+    width: auto; }
+
+body .sidebar h2.rounded {
+  background-color: #2179d2; }
+
+body .sidebar input#searchsubmit {
+  background-color: #2179d2; }
+
+section {
+  padding: 90px 0px;
+  position: relative; }
+
+p {
+  font-family: Montserrat; }
+
+body p {
+  font-size: 16px; }
+
+body .banner {
+  margin-top: 75px;
+  height: 70vh; }
+  body .banner .site-title {
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    right: 0px; }
+  body .banner h1 {
+    color: white;
+    padding: 19px;
+    border-radius: 8px;
+    display: inline-block;
+    position: absolute;
+    top: 0%;
+    left: 0px;
+    right: 0px;
+    transform: translate3d(0, -90%, 0);
+    font-size: 40px;
+    z-index: 100;
+    font-weight: bold;
+    padding: 19px;
+    font-size: 50px;
+    text-transform: uppercase;
+    transition: 1s ease all;
+    width: 80%;
+    margin: 0px auto; }
+    body .banner h1:hover {
+      opacity: 0.3; }
+  body .banner .cta a {
+    justify-content: center;
+    display: inline-block;
+    background-color: #2179d2;
+    font-size: 20px;
+    border-radius: 3px;
+    width: 390px;
+    padding: 10px; }
+    body .banner .cta a i {
+      float: left; }
+    body .banner .cta a h2 {
+      font-size: 24px;
+      line-height: 50px; }
+
+body .section-gray {
+  background-color: #ececec; }
+
+body .border-wrap {
+  border: 1px solid #e4e4e4;
+  padding: 19px;
+  border-top: 3px solid #2179d2; }
+
+body .sidebar form#searchform input#s {
+  background-color: #ececec; }
+
+body .sidebar .textwidget {
+  border: 1px solid #e4e4e4;
+  border-top: 3px solid #2179d2;
+  color: black; }
+  body .sidebar .textwidget h4 {
+    font-weight: bold; }
+  body .sidebar .textwidget p {
+    font-size: 16px; }
+  body .sidebar .textwidget img {
+    max-height: 250px;
+    width: auto;
+    height: auto;
+    margin: auto; }
+
+#awards {
+  margin-top: 30px; }
+  #awards img {
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: auto;
+    max-height: 100px; }
+
+.single .container h1.page-title {
+  position: initial;
+  /* top: auto; */
+  /* left: auto; */
+  color: #2179d2;
+  font-size: 60px;
+  margin-top: 0px;
+  text-align: center; }
+
+.left-side-text {
+  border-top: 4px solid #2179d2; }
+
+@media (max-width: 995px) {
+  header {
+    z-index: 9999; }
+    header .flexwrapper .nav-menu .site_nav li {
+      background-color: #76c0e9; } }
+
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  margin-top: 75px;
+  height: 50vh; }
+
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0; }
+
+section.section-white.single .container {
+  padding: 35px 0px; }
+
+section.section-white.single .page-text {
+  text-align: center; }
+
+section.section-white.single .kontakt-title {
+  border-bottom: 3px solid #2179d2;
+  display: inline-block; }
+
+section.section-white.single .form input::not([type="submit"]) {
+  width: 100%; }
+
+section.section-white.single .form textarea {
+  max-width: 100%; }
+
+section.section-white.single .form input[type="submit"] {
+  background-color: #2179d2;
+  color: white;
+  border-radius: 3px; }
+
+@media (max-height: 600px) {
+  body .banner {
+    height: 60vh; }
+    body .banner h1 {
+      font-size: 40px; }
+  body section {
+    padding: 35px 0px; } }
+
+.menu-toggle {
+  position: absolute;
+  right: 20px;
+  top: 0px;
+  border-radius: 3px;
+  display: none;
+  font-size: 20px;
+  color: white;
+  top: 50%;
+  transform: translate3d(0, -50%, 0); }
+  .menu-toggle:hover {
+    cursor: pointer; }
+
+/*TABLET START*/
+@media (max-width: 995px) {
+  body header#top-menu .nav-menu {
+    width: 100%;
+    position: absolute;
+    height: initial;
+    /* float: none; */
+    /* left: 0px; */
+    /* right: 0px; */
+    z-index: 99;
+    /* top: 157px; */
+    top: 100%;
+    left: 0px; }
+    body header#top-menu .nav-menu li {
+      padding: 10px 20px; }
+  body .menu-toggle {
+    display: block; } }
+
+@media (max-width: 575px) {
+  body .banner h1 {
+    font-size: 35px;
+    width: 100%; }
+  body .banner .cta a {
+    width: 90%;
+    font-size: 20px; }
+    body .banner .cta a i {
+      font-size: 25px; }
+    body .banner .cta a h2 {
+      font-size: 18px; } }
+
+@media (min-width: 1600px) {
+  body .banner h1 {
+    width: 70%;
+    font-size: 60px; } }

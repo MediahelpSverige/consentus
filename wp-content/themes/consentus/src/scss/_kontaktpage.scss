@@ -1,0 +1,54 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map {
+  margin-top: $headerHeight;
+  height: 50vh;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+section.section-white.single {
+
+  .container{
+    padding: 35px 0px;
+  }
+
+  .page-text{
+    text-align: center;
+  }
+
+  .kontakt-title{
+    border-bottom: 3px solid $mainColor;
+    display: inline-block;
+  }
+
+  .box-wrap{
+
+
+
+  strong{
+
+
+  }
+
+    }
+
+  .form{
+    input::not([type="submit"]){
+      width: 100%;
+    }
+    textarea{
+      max-width: 100%;
+    }
+    input[type="submit"]{
+      background-color: $mainColor;
+      color: white;
+      border-radius: 3px;
+    }
+  }
+
+}

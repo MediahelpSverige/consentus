@@ -1,0 +1,35 @@
+header#top-menu{
+  position: fixed;
+  height: $headerHeight;
+
+  .flexwrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 95%;
+  margin: auto;
+  font-size: 14px;
+}
+.site_nav{
+li{
+  padding: 0px 20px;
+  a{
+    font-size: 14px;
+  }
+}
+}
+
+#logo-wrap{
+height: $headerHeight;
+background-color: $mainColor;
+}
+
+.top-header-logo{
+img{
+  max-height: 45px;
+  width: auto;
+}
+}
+
+
+}

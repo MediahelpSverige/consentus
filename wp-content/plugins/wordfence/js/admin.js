@@ -63,6 +63,10 @@
 					$($this.data('selector')).show();
 					return false;
 				});
+				
+				$('.downloadLogFile').each(function() {
+					$(this).attr('href', WordfenceAdminVars.ajaxURL + '?action=wordfence_downloadLogFile&nonce=' + WFAD.nonce + '&logfile=' + encodeURIComponent($(this).data('logfile')));
+				});
 
 				$('#doSendEmail').click(function() {
 					var ticket = $('#_ticketnumber').val();
@@ -111,11 +115,39 @@
 					jQuery('#consoleActivity').scrollTop(jQuery('#consoleActivity').prop('scrollHeight'));
 					jQuery('#consoleScan').scrollTop(jQuery('#consoleScan').prop('scrollHeight'));
 					this.noScanHTML = jQuery('#wfNoScanYetTmpl').tmpl().html();
-					this.loadIssues();
+
+
+					var loadingIssues = true;
+					
+					this.loadIssues(function() {
+						loadingIssues = false;
+					});
 					this.startActivityLogUpdates();
 					if (this.needTour()) {
 						this.scanTourStart();
 					}
+
+					var issuesWrapper = $('#wfScanIssuesWrapper');
+					var hasScrolled = false;
+					$(window).on('scroll', function() {
+						var win = $(this);
+						// console.log(win.scrollTop() + window.innerHeight, liveTrafficWrapper.outerHeight() + liveTrafficWrapper.offset().top);
+						var currentScrollBottom = win.scrollTop() + window.innerHeight;
+						var scrollThreshold = issuesWrapper.outerHeight() + issuesWrapper.offset().top;
+						if (hasScrolled && !loadingIssues && currentScrollBottom >= scrollThreshold) {
+							// console.log('infinite scroll');
+
+							loadingIssues = true;
+							hasScrolled = false;
+							var offset = $('div.wfIssue').length;
+							WFAD.loadMoreIssues(function() {
+								loadingIssues = false;
+							}, offset);
+						} else if (currentScrollBottom < scrollThreshold) {
+							hasScrolled = true;
+							// console.log('no infinite scroll');
+						}
+					});
 				} else if (jQuery('#wordfenceMode_waf').length > 0) {
 					if (this.needTour()) {
 						this.tour('wfWAFTour', 'wfHeading', 'top', 'left', "Learn about Live Traffic", function() {
@@ -147,8 +179,8 @@
 					}
 					startTicker = true;
 					if (this.needTour()) {
-						this.tour('wfWelcomeContent3', 'wfHeading', 'top', 'left', "Learn about Site Performance", function() {
-							self.tourRedir('WordfenceSitePerf');
+						this.tour('wfWelcomeContent3', 'wfHeading', 'top', 'left', "Learn about IP Blocking", function() {
+							self.tourRedir('WordfenceBlockedIPs');
 						});
 					}
 				} else if (jQuery('#wordfenceMode_options').length > 0) {
@@ -321,7 +353,9 @@
 			},
 			updateConfig: function(key, val, cb) {
 				this.ajax('wordfence_updateConfig', {key: key, val: val}, function() {
-					cb();
+					if (cb) {
+						cb();
+					}
 				});
 			},
 			tourFinish: function() {
@@ -371,6 +405,10 @@
 					jQuery('#pointer-close').after('<a id="pointer-primary" class="button-primary">' + buttonLabel + '</a>');
 					jQuery('#pointer-primary').click(buttonCallback);
 				}
+
+				$('html, body').animate({
+					scrollTop: $('.wp-pointer').offset().top - 100
+				}, 1000);
 			},
 			startTourAgain: function() {
 				var self = this;
@@ -518,7 +556,7 @@
 					}
 					html += '">[' + item.date + ']&nbsp;' + item.msg + '</div>';
 					jQuery('#consoleActivity').append(html);
-					if (/Scan complete\./i.test(item.msg)) {
+					if (/Scan complete\./i.test(item.msg) || /Scan interrupted\./i.test(item.msg)) {
 						this.loadIssues();
 					}
 				}
@@ -790,13 +828,23 @@
 					jQuery('#wfAuditJobs').empty().html("<p>You don't have any password auditing jobs in progress or completed yet.</p>");
 				}
 			},
-			loadIssues: function(callback) {
+			loadIssues: function(callback, offset, limit) {
 				if (this.mode != 'scan') {
 					return;
 				}
+				offset = offset || 0;
+				limit = limit || WordfenceAdminVars.scanIssuesPerPage;
 				var self = this;
-				this.ajax('wordfence_loadIssues', {}, function(res) {
+				this.ajax('wordfence_loadIssues', {offset: offset, limit: limit}, function(res) {
 					self.displayIssues(res, callback);
+				});
+			},
+			loadMoreIssues: function(callback, offset, limit) {
+				offset = offset || 0;
+				limit = limit || WordfenceAdminVars.scanIssuesPerPage;
+				var self = this;
+				this.ajax('wordfence_loadIssues', {offset: offset, limit: limit}, function(res) {
+					self.appendIssues(res.issuesLists, callback);
 				});
 			},
 			sev2num: function(str) {
@@ -869,7 +917,7 @@
 						"bPaginate": false,
 						"bLengthChange": false,
 						"bAutoWidth": false,
-						"aaData": res.issuesLists[issueStatus],
+						//"aaData": res.issuesLists[issueStatus],
 						"aoColumns": [
 							{
 								"sTitle": '<div class="th_wrapp">Severity</div>',
@@ -895,6 +943,22 @@
 						]
 					});
 				}
+				
+				this.appendIssues(res.issuesLists, callback);
+				
+				return true;
+			},
+			appendIssues: function(issuesLists, callback) {
+				for (var issueStatus in issuesLists) {
+					var tableID = 'wfIssuesTable_' + issueStatus;
+					if (jQuery('#' + tableID).length < 1) {
+						//Invalid issue status
+						continue;
+					}
+
+					jQuery('#' + tableID).dataTable().fnAddData(issuesLists[issueStatus]);
+				}
+
 				if (callback) {
 					jQuery('#wfIssues_' + this.visibleIssuesPanel).fadeIn(500, function() {
 						callback();
@@ -902,7 +966,6 @@
 				} else {
 					jQuery('#wfIssues_' + this.visibleIssuesPanel).fadeIn(500);
 				}
-				return true;
 			},
 			ajax: function(action, data, cb, cbErr, noLoading) {
 				if (typeof(data) == 'string') {
@@ -1084,6 +1147,25 @@
 						self.colorbox('400px', 'An error occurred', res.cerrorMsg);
 					});
 				}
+			},
+			useRecommendedHowGetIPs: function(issueID) {
+				var self = this;
+				this.ajax('wordfence_misconfiguredHowGetIPsChoice', {
+					issueID: issueID,
+					choice: 'yes'
+				}, function(res) {
+					if (res.ok) {
+						jQuery('#wordfenceMisconfiguredHowGetIPsNotice').fadeOut();
+						
+						self.loadIssues(function() {
+							self.colorbox('400px', "Success updating option", "The 'How does Wordfence get IPs' option was successfully updated to the recommended value.");
+						});
+					} else if (res.cerrorMsg) {
+						self.loadIssues(function() {
+							self.colorbox('400px', 'An error occurred', res.cerrorMsg);
+						}); 
+					}
+				});	
 			},
 			fixFPD: function(issueID) {
 				var self = this;
@@ -2178,9 +2260,10 @@
 							
 							var message = "Scan the code below with your authenticator app to add this account. Some authenticator apps also allow you to type in the text version instead.<br><div id=\"wfTwoFactorQRCodeTable\"></div><br><strong>Key:</strong> <input type=\"text\" size=\"45\" value=\"" + res.base32Secret + "\" onclick=\"this.select();\" readonly>";
 							if (res.recoveryCodes.length > 0) {
-								message = message + "<br><br><strong>Recovery Codes</strong><br><p>Use these codes to log in if you lose access to your authenticator device. Each one may be used only once.</p><ul id=\"wfTwoFactorRecoveryCodes\">";
+								message = message + "<br><br><strong>Recovery Codes</strong><br><p>Use one of these " + res.recoveryCodes.length + " codes to log in if you lose access to your authenticator device. Codes are 16 characters long, plus optional spaces. Each one may be used only once.</p><ul id=\"wfTwoFactorRecoveryCodes\">";
 
 								var recoveryCodeFileContents = "Cellphone Sign-In Recovery Codes - " + res.homeurl + " (" + res.username + ")\r\n";
+								recoveryCodeFileContents = recoveryCodeFileContents + "\r\nEach line of 16 letters and numbers is a single recovery code, with optional spaces for readability. When typing your password, enter \"wf\" followed by the entire code like \"mypassword wf1234 5678 90AB CDEF\". If your site shows a separate prompt for entering a code after entering only your username and password, enter only the code like \"1234 5678 90AB CDEF\". Your recovery codes are:\r\n\r\n";
 								var splitter = /.{4}/g;
 								for (var i = 0; i < res.recoveryCodes.length; i++) { 
 									var code = res.recoveryCodes[i];
@@ -2209,9 +2292,10 @@
 							self.twoFacStatus('User added! Check the user\'s phone to get the activation code.');
 
 							if (res.recoveryCodes.length > 0) {
-								var message = "<p>Use these codes to log in if you are unable to access your phone. Each one may be used only once.</p><ul id=\"wfTwoFactorRecoveryCodes\">";
+								var message = "<p>Use one of these " + res.recoveryCodes.length + " codes to log in if you are unable to access your phone. Codes are 16 characters long, plus optional spaces. Each one may be used only once.</p><ul id=\"wfTwoFactorRecoveryCodes\">";
 
 								var recoveryCodeFileContents = "Cellphone Sign-In Recovery Codes - " + res.homeurl + " (" + res.username + ")\r\n";
+								recoveryCodeFileContents = recoveryCodeFileContents + "\r\nEach line of 16 letters and numbers is a single recovery code, with optional spaces for readability. When typing your password, enter \"wf\" followed by the entire code like \"mypassword wf1234 5678 90AB CDEF\". If your site shows a separate prompt for entering a code after entering only your username and password, enter only the code like \"1234 5678 90AB CDEF\". Your recovery codes are:\r\n\r\n";
 								var splitter = /.{4}/g;
 								for (var i = 0; i < res.recoveryCodes.length; i++) {
 									var code = res.recoveryCodes[i];

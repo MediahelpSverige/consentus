@@ -1,9 +1,9 @@
 === WP Simple Pay Lite for Stripe ===
 Contributors: moonstonemedia, pderksen, nickyoung87, nekojira
 Tags: stripe, stripe checkout, payments, simple stripe checkout, ecommerce, e-commerce
-Requires at least: 4.2
-Tested up to: 4.6
-Stable tag: 1.5.4
+Requires at least: 4.3
+Tested up to: 4.7
+Stable tag: 1.5.6
 License: GPLv2 or later
 
 Add high conversion Stripe checkout forms to your WordPress site and start accepting payments in minutes.
@@ -91,6 +91,20 @@ We'd love your help! Here's a few things you can do:
 4. Settings: Site-wide defaults
 
 == Changelog ==
+
+= 1.5.7 - November 11, 2016 =
+
+* Dev: Fix JavaScript type casting console warnings originating from Stripe.
+* Dev: Tested up to WordPress 4.7.
+* Dev: Updated to Stripe PHP library v4.1.1.
+
+= 1.5.6 - October 27, 2016 =
+
+* Fix: Additional check for Pro version active.
+
+= 1.5.5 - October 21, 2016 =
+
+* Fix: Corrected test mode not getting set correctly when using new alternate Stripe API key filters.
 
 = 1.5.4 - October 17, 2016 =
 

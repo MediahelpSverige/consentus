@@ -28,7 +28,6 @@ header{
     z-index: 9999;
     font-family: 'Montserrat', sans-serif;
     background-color: #FEFEFE;
-    height: 80px;
 }
 
 header .flexwrapper{
@@ -127,14 +126,7 @@ ul{
 }
 
 .banner h1 {
-    background: #2A6598;
-    color: white;
-    padding: 19px;
-    border-radius: 8px;
-    display: inline-block;
-    font-size: 40px;
-    z-index: 100;
-    font-weight: 400;
+
 }
 
 section.banner h3 {
@@ -203,7 +195,7 @@ section.banner h3 {
 }
 
 #logo-wrap{
-    height: 80px;
+    height: 65px;
     border-bottom: 0px solid #000000;
     padding: 10px 0px;
 }
@@ -309,11 +301,11 @@ header .nav-menu ul{
 
 .site_nav li a {
     font-size: 18px;
-    letter-spacing: 1.1px;
+    /* letter-spacing: 1.1px; */
     color: black;
-    font-size: 13px;
+    font-size: 15px;
     /* padding-bottom: 5px; */
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     /* font-family: Arial; */
     /* font-weight: 700; */
 }
@@ -1068,5 +1060,4 @@ div#wpcf7-f84-o1{
     color: white;
     margin: 0px;
     font-size: 30px;
-    align-self: center;
-} 
+    align-self: center      

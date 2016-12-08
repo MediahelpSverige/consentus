@@ -4,167 +4,12 @@ Template name: kontakt
 */
 get_header();
 ?>
-<style type="text/css">
-.acf-map {
-	width: 100%;
-	height: 400px;
-	border: #ccc solid 1px;
-	margin: 20px 0;
-}
-/* fixes potential theme css conflict */
-.acf-map img {
-max-width: inherit !important;
-}
-</style>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script type="text/javascript">
-(function($) {
-/*
-*  new_map
-*
-*  This function will render a Google Map onto the selected jQuery element
-*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-*
-	*  @param	$el (jQuery element)
-	*  @return	n/a
-*/
-function new_map( $el ) {
+<script src="<?php bloginfo( 'template_url' ); ?>/src/js/map.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGCZgUR-m108imr_y_SsntCRvQ8MgHcP0&callback=initMap"
+    async defer></script>
+<div class="map-banner">
+	<div id="map"></div>
 
-	// var
-	var $markers = $el.find('.marker');
-
-
-	// vars
-	var args = {
-				zoom		: 16,
-				center		: new google.maps.LatLng(0, 0),
-			mapTypeId	: google.maps.MapTypeId.ROADMAP
-	};
-
-
-			// create map
-	var map = new google.maps.Map( $el[0], args);
-
-
-	// add a markers reference
-	map.markers = [];
-
-
-	// add markers
-	$markers.each(function(){
-
-	add_marker( $(this), map );
-
-	});
-
-
-	// center map
-	center_map( map );
-
-
-	// return
-	return map;
-
-}
-/*
-*  add_marker
-*
-*  This function will add a marker to the selected Google Map
-*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-*
-	*  @param	$marker (jQuery element)
-	*  @param	map (Google Map object)
-	*  @return	n/a
-*/
-function add_marker( $marker, map ) {
-	// var
-	var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
-	// create marker
-	var marker = new google.maps.Marker({
-			position	: latlng,
-					map			: map
-	});
-	// add to array
-	map.markers.push( marker );
-	// if marker contains HTML, add it to an infoWindow
-	if( $marker.html() )
-	{
-		// create info window
-		var infowindow = new google.maps.InfoWindow({
-					content		: $marker.html()
-		});
-		// show info window when marker is clicked
-		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open( map, marker );
-		});
-	}
-}
-/*
-*  center_map
-*
-*  This function will center the map, showing all markers attached to this map
-*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	4.3.0
-*
-	*  @param	map (Google Map object)
-	*  @return	n/a
-*/
-function center_map( map ) {
-	// vars
-	var bounds = new google.maps.LatLngBounds();
-	// loop through all markers and create bounds
-	$.each( map.markers, function( i, marker ){
-		var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
-		bounds.extend( latlng );
-	});
-	// only 1 marker?
-	if( map.markers.length == 1 )
-	{
-		// set center of map
-	map.setCenter( bounds.getCenter() );
-	map.setZoom( 16 );
-	}
-	else
-	{
-		// fit to bounds
-		map.fitBounds( bounds );
-	}
-}
-/*
-*  document ready
-*
-*  This function will render each map when the document is ready (page has loaded)
-*
-	*  @type	function
-	*  @date	8/11/2013
-	*  @since	5.0.0
-*
-	*  @param	n/a
-	*  @return	n/a
-*/
-// global var
-var map = null;
-$(document).ready(function(){
-	$('.acf-map').each(function(){
-		// create map
-		map = new_map( $(this) );
-	});
-});
-})(jQuery);
-</script>
-<section class="map-banner">
-			<div class="map">
-				<?php the_field('karta');?>
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2003.4146643649083!2d17.690205516093744!3d59.858860581847225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x691af148fefd86d8!2sMediahelp+Sverige+AB!5e0!3m2!1sen!2sse!4v1471525224245" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-			</div>
 
 <div class="container">
 	<div class="header-logo">
@@ -174,13 +19,13 @@ $(document).ready(function(){
 </div>
 
 
-</section>
+</div>
 <section class="section-white single">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
 				<h1 class="page-title"><?php the_field('page-title'); ?></h1>
-				<p class="page-title">Hör av er till os på gävle vvs så återkommer vi inom kort</p>
+				<div class="page-text"><?php the_field('page_text'); ?></div>
 			</div>
 			<div class="col-md-12">
 					<div class="kontakt-info">
@@ -197,7 +42,6 @@ $(document).ready(function(){
 			?>
 		</div>
 		<div class="employee-wrap">
-				<h2>Det här är vi:</h2>
 				<?php $query8 = new WP_Query(array( 'post_type' => 'arbetare', 'post_per_page' => -1) );
 				//print_r($query8);
 				while ( $query8->have_posts() ) : $query8->the_post(); ?>
@@ -213,18 +57,32 @@ $(document).ready(function(){
 				<div class="clearfix"></div>
 			</div>
 			</div>
-			<div class="col-md-4"></div>
-		<div class="col-md-6">
-		<div class="box-wrap">
 
-		</div>
-		<div class="box-wrap">
-			<div class="form">
-				<h2 class="small-title">Fyll i formuläret så återkommer vi så fort vi kan</h2>
-				<?php echo do_shortcode(the_field('kontaktformular'));?>
+			<div class="col-md-4">
+        <div class="box-wrap">
+          <h3 class="kontakt-title">Kontaktinformation</h3>
+          <?php the_field('kontaktinformation'); ?>
+        </div>
+        <div class="box-wrap">
+          <h3 class="kontakt-title">Post- och besöksadress</h3>
+          <?php the_field('post_och_besoksadress'); ?>
+        </div>
 			</div>
-		</div>
-		</div>
+		<div class="col-md-4">
+      <div class="box-wrap">
+        <h3 class="kontakt-title">Fakturaadress</h3>
+        <?php the_field('fakturaadress'); ?>
+      </div>
+      		</div>
+      <div class="col-md-4">
+        <div class="box-wrap">
+          <div class="form">
+            <h3 class="kontakt-title">kontaktformulär</h3>
+            <?php echo do_shortcode(the_field('kontaktformular'));?>
+          </div>
+        </div>
+      </div>
+
 		</div>
 	</div>
 </section>

@@ -6,3 +6,191 @@ section{
 p{
   font-family: Montserrat;
 }
+
+body{
+
+p{
+  font-size: 16px;
+}
+
+  .banner{
+    .site-title{
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      right: 0px;
+    }
+    margin-top: $headerHeight;
+    height: 70vh;
+
+    h1{
+
+      color: white;
+      padding: 19px;
+      border-radius: 8px;
+      display: inline-block;
+      position: absolute;
+      top:0%;
+      left: 0px;
+      right: 0px;
+      transform: translate3d(0,-90%,0);
+      font-size: 40px;
+      z-index: 100;
+      font-weight: bold;
+      padding: 19px;
+      font-size: 50px;
+      text-transform: uppercase;
+      transition: 1s ease all;
+      width: 80%;
+      margin: 0px auto;
+
+      &:hover{
+        opacity: 0.3;
+      }
+    }
+
+    .cta a{
+      justify-content: center;
+      display: inline-block;
+      background-color: $mainColor;
+      font-size: 20px;
+      border-radius: 3px;
+      width: 390px;
+      padding: 10px;
+      i{
+        float:left;
+      }
+
+      h2{
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+  }
+
+
+
+  .section-gray{
+        background-color: #ececec;
+  }
+
+  .border-wrap {
+    border: 1px solid rgb(228, 228, 228);
+    padding: 19px;
+    border-top: $blueborder;
+
+
+}
+
+.sidebar{
+
+  form#searchform{
+    input#s{
+
+      background-color: #ececec;
+
+    }
+  }
+
+.textwidget{
+
+  border: 1px solid rgb(228, 228, 228);
+  border-top: $blueborder;
+  color: black;
+
+  h4{
+    font-weight: bold;
+  }
+
+  p{
+    font-size: 16px;
+  }
+
+  img{
+    max-height: 250px;
+    width: auto;
+    height: auto;
+    margin: auto;
+  }
+}
+
+}
+
+}
+
+#awards{
+  margin-top: 30px;
+  img{
+    max-width: 100%;
+    height: auto;
+    width: auto;
+    display: block;
+    margin: auto;
+    max-height: 100px;
+  }
+}
+
+
+//SINGLE PAGE STYLES
+
+.single{
+
+  .container{
+
+
+
+h1.page-title{
+  position: initial;
+    /* top: auto; */
+    /* left: auto; */
+    color: $mainColor;
+    font-size: 60px;
+    margin-top: 0px;
+    text-align: center;
+}
+}
+
+
+}
+
+
+
+
+
+.left-side-text{
+      border-top: 4px solid $mainColor;
+}
+
+
+
+@media (max-width: 995px){
+
+
+header{
+
+  z-index: 9999;
+
+	.flexwrapper{
+
+	.nav-menu{
+
+	.site_nav{
+
+
+		 li {
+    	//float: none;
+    	background-color: #76c0e9;
+
+      a{
+
+      }
+	}
+
+
+	}
+}
+
+}
+}
+
+}

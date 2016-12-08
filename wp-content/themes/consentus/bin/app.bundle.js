@@ -2891,8 +2891,6 @@
 
 	var _jquery2 = _interopRequireDefault(_jquery);
 
-	__webpack_require__(324);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 /***/ },
@@ -21244,46 +21242,6 @@
 
 	return jQuery;
 	} );
-
-
-/***/ },
-/* 324 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// style-loader: Adds some css to the DOM by adding a <style> tag
-
-	// load the styles
-	var content = __webpack_require__(325);
-	if(typeof content === 'string') content = [[module.id, content, '']];
-	// add the styles to the DOM
-	var update = __webpack_require__(11)(content, {});
-	if(content.locals) module.exports = content.locals;
-	// Hot Module Replacement
-	if(false) {
-		// When the styles change, update the <style> tags
-		if(!content.locals) {
-			module.hot.accept("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./custom.scss", function() {
-				var newContent = require("!!./../../node_modules/css-loader/index.js?sourceMap!./../../node_modules/sass-loader/index.js?sourceMap!./custom.scss");
-				if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
-				update(newContent);
-			});
-		}
-		// When the module is disposed, remove the <style> tags
-		module.hot.dispose(function() { update(); });
-	}
-
-/***/ },
-/* 325 */
-/***/ function(module, exports, __webpack_require__) {
-
-	exports = module.exports = __webpack_require__(5)();
-	// imports
-
-
-	// module
-	exports.push([module.id, "section {\n  padding: 90px 0px;\n  position: relative; }\n\np {\n  font-family: Montserrat; }\n\nbody header {\n  height: 80px; }\n  body header .flexwrapper {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    width: 95%;\n    margin: auto; }\n\nbody .banner {\n  margin-top: 80px;\n  height: 70vh; }\n  body .banner .site-title {\n    position: absolute;\n    top: 50%;\n    left: 0px;\n    right: 0px; }\n  body .banner h1 {\n    background-color: #76c0e9;\n    padding: 19px;\n    font-size: 35px; }\n  body .banner .cta a {\n    justify-content: center; }\n\nbody .section-gray {\n  background-color: #ececec; }\n\nbody .border-wrap {\n  border: 1px solid #e4e4e4;\n  padding: 19px;\n  border-top: 3px solid #76c0e9; }\n\nbody .sidebar form#searchform input#s {\n  background-color: #ececec; }\n\nbody .sidebar .textwidget {\n  border: 1px solid #e4e4e4;\n  border-top: 3px solid #76c0e9;\n  color: black; }\n  body .sidebar .textwidget h4 {\n    font-weight: bold; }\n  body .sidebar .textwidget p {\n    font-size: 16px; }\n  body .sidebar .textwidget img {\n    max-height: 250px;\n    width: auto;\n    height: auto;\n    margin: auto; }\n\n#awards {\n  margin-top: 30px; }\n  #awards img {\n    max-width: 100%;\n    height: auto;\n    width: auto;\n    display: block;\n    margin: auto;\n    max-height: 100px; }\n\n.single .container h1.page-title {\n  position: initial;\n  /* top: auto; */\n  /* left: auto; */\n  color: #76c0e9;\n  font-size: 60px;\n  margin-top: 0px;\n  text-align: center; }\n\n.left-side-text {\n  border-top: 4px solid #76c0e9; }\n\n@media (max-width: 995px) {\n  header {\n    z-index: 9999; }\n    header .flexwrapper .nav-menu .site_nav li {\n      background-color: #76c0e9; } }\n", "", {"version":3,"sources":["/./src/scss/src/scss/_standard.scss","/./src/scss/src/scss/custom.scss"],"names":[],"mappings":"AAAA;EACE,kBAAkB;EAClB,mBAAmB,EACpB;;AAED;EACE,wBAAwB,EACzB;;ACGD;EAII,aAbe,EAuBhB;EAdH;IAOI,cAAc;IACd,oBAAoB;IACpB,+BAA+B;IAC/B,WAAW;IACX,aAAa,EAChB;;AAZD;EAwBI,iBAjCe;EAkCf,aAAa,EAWd;EApCH;IAmBM,mBAAmB;IACnB,SAAS;IACT,UAAU;IACV,WAAW,EACZ;EAvBL;IA4BM,0BAtCa;IAuCb,cAAc;IACd,gBAAgB,EACjB;EA/BL;IAkCM,wBAAwB,EACzB;;AAnCL;EAyCQ,0BAA0B,EAC/B;;AA1CH;EA6CI,0BAAqB;EACrB,cAAc;EACd,8BAzDe,EA4DlB;;AAlDD;EAyDM,0BAA0B,EAE3B;;AA3DL;EAgEE,0BAAqB;EACrB,8BA3EiB;EA4EjB,aAAa,EAgBd;EAlFD;IAqEI,kBAAkB,EACnB;EAtEH;IAyEI,gBAAgB,EACjB;EA1EH;IA6EI,kBAAkB;IAClB,YAAY;IACZ,aAAa;IACb,aAAa,EACd;;AAOH;EACE,iBAAiB,EASlB;EAVD;IAGI,gBAAgB;IAChB,aAAa;IACb,YAAY;IACZ,eAAe;IACf,aAAa;IACb,kBAAkB,EACnB;;AAMH;EAOE,kBAAkB;EAChB,gBAAgB;EAChB,iBAAiB;EACjB,eA3He;EA4Hf,gBAAgB;EAChB,gBAAgB;EAChB,mBAAmB,EACtB;;AAUD;EACM,8BA1Ia,EA2IlB;;AAID;EAGA;IAEE,cAAc,EAuBf;IAzBD;MAaK,0BAA0B,EAK7B,EAAA","file":"custom.scss","sourcesContent":["section{\r\n  padding: 90px 0px;\r\n  position: relative;\r\n}\r\n\r\np{\r\n  font-family: Montserrat;\r\n}\r\n","$mainColor: #76c0e9;\r\n$headerHeight: 80px;\r\n$blueborder: 3px solid $mainColor;\r\n\r\n\r\n@import 'standard';\r\n\r\n\r\n\r\n\r\nbody{\r\n\r\n  header{\r\n\r\n    height: $headerHeight;\r\n\r\n    .flexwrapper {\r\n    display: flex;\r\n    flex-direction: row;\r\n    justify-content: space-between;\r\n    width: 95%;\r\n    margin: auto;\r\n}\r\n\r\n  }\r\n\r\n\r\n  .banner{\r\n    .site-title{\r\n      position: absolute;\r\n      top: 50%;\r\n      left: 0px;\r\n      right: 0px;\r\n    }\r\n    margin-top: $headerHeight;\r\n    height: 70vh;\r\n\r\n    h1{\r\n      background-color: $mainColor;\r\n      padding: 19px;\r\n      font-size: 35px;\r\n    }\r\n\r\n    .cta a{\r\n      justify-content: center;\r\n    }\r\n  }\r\n\r\n\r\n\r\n  .section-gray{\r\n        background-color: #ececec;\r\n  }\r\n\r\n  .border-wrap {\r\n    border: 1px solid rgb(228, 228, 228);\r\n    padding: 19px;\r\n    border-top: $blueborder;\r\n\r\n\r\n}\r\n\r\n.sidebar{\r\n\r\n  form#searchform{\r\n    input#s{\r\n\r\n      background-color: #ececec;\r\n\r\n    }\r\n  }\r\n\r\n.textwidget{\r\n\r\n  border: 1px solid rgb(228, 228, 228);\r\n  border-top: $blueborder;\r\n  color: black;\r\n\r\n  h4{\r\n    font-weight: bold;\r\n  }\r\n\r\n  p{\r\n    font-size: 16px;\r\n  }\r\n\r\n  img{\r\n    max-height: 250px;\r\n    width: auto;\r\n    height: auto;\r\n    margin: auto;\r\n  }\r\n}\r\n\r\n}\r\n\r\n}\n\n#awards{\r\n  margin-top: 30px;\r\n  img{\r\n    max-width: 100%;\r\n    height: auto;\r\n    width: auto;\r\n    display: block;\r\n    margin: auto;\r\n    max-height: 100px;\r\n  }\r\n}\r\n\r\n\r\n//SINGLE PAGE STYLES\r\n\r\n.single{\r\n\r\n  .container{\r\n\r\n\r\n\r\nh1.page-title{\r\n  position: initial;\r\n    /* top: auto; */\r\n    /* left: auto; */\r\n    color: $mainColor;\r\n    font-size: 60px;\r\n    margin-top: 0px;\r\n    text-align: center;\r\n}\r\n}\r\n\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n.left-side-text{\r\n      border-top: 4px solid $mainColor;\r\n}\r\n\r\n\r\n\r\n@media (max-width: 995px){\r\n\r\n\r\nheader{\r\n\r\n  z-index: 9999;\r\n\r\n\t.flexwrapper{\r\n\r\n\t.nav-menu{\r\n\r\n\t.site_nav{\r\n\r\n\r\n\t\t li {\r\n    \t//float: none;\r\n    \tbackground-color: #76c0e9;\r\n\r\n      a{\r\n\r\n      }\r\n\t}\r\n\r\n\r\n\t}\r\n}\r\n\r\n}\r\n}\r\n\r\n}\r\n"],"sourceRoot":"webpack://"}]);
-
-	// exports
 
 
 /***/ }

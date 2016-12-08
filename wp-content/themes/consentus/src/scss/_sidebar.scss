@@ -1,0 +1,10 @@
+body{
+  .sidebar{
+    h2.rounded{
+      background-color: $mainColor;
+    }
+    input#searchsubmit{
+      background-color: $mainColor;
+    }
+  }
+}

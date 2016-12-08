@@ -11,6 +11,7 @@
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/custom.css">
+<link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/base.css">
 <link rel="stylesheet" href="<?php bloginfo( 'template_url' ); ?>/css/responsive.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
@@ -27,7 +28,7 @@
 </head>
 <body>
 
-<header>
+<header id="top-menu">
 	<div id="logo-wrap">
 <div class="flexwrapper">
 <div class="top-header-logo">
@@ -41,9 +42,9 @@ $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
 	</div>
 	<div style="clear:both;"></div>
 		<div class="menu-toggle">
-		<span class="stripe"></span>
-		<span class="stripe"></span>
-		<span class="stripe"></span>
+		<span class="glyphicon glyphicon-menu-hamburger
+"></span>
+
 	</div>
 	</div>
 </div>

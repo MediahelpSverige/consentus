@@ -1,19 +1,4 @@
-.menu-toggle {
-    height: 32px;
-    width: 32px;
-    background-color: #AFD0EB;
-    position: absolute;
-    top: 8px;
-    right: 50px;
-    border-radius: 3px;
-    float: right;
-    margin-left: 50px;
-    display: none;
-}
 
-.menu-toggle:hover{
-    cursor: pointer;
-}
 
 .menu-toggle .stripe:nth-child(1){
         background-color: white;
@@ -218,3 +203,21 @@ header{
 }
 }
 
+
+
+/*LAPTOP STYLES*/
+
+@media (max-height: 800px){
+    .banner{
+        min-height: 400px;
+    }
+}
+
+@media (max-height: 660px){
+        .banner{
+        min-height: 300px;
+    }
+    .banner h1{
+        font-size: 45px;
+    }
+}
