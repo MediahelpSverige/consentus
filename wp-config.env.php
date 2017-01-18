@@ -29,6 +29,10 @@ switch ($hostname) {
         define('WP_ENV', 'development');
 		break;
 
+    case 'localhost':
+        define('WP_ENV', 'development2');
+        break;
+
     case 'consentus.mediahelpcrm.se':
         define('WP_ENV', 'staging');
         break;

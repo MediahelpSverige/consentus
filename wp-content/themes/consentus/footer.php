@@ -1,6 +1,6 @@
 <footer>
 	<div class="container">
-		<p><i class="fa fa-copyright" aria-hidden="true"></i> 2009 Consentus Oil AB, Telefon: 08-702 01 81, E-post: info@consentus.se</p>
+		<p>&copy; <?php echo date('Y'); ?> Consentus Oil AB, Telefon: 08-702 01 81, E-post: info@consentus.se</p>
 		<?php dynamic_sidebar('footer-adress'); ?>
 		<?php dynamic_sidebar('opening-hours'); ?>
 		<!--<p><span>© 2012. Stilog AB - Enjoy Your Business</span>

@@ -4,25 +4,24 @@ get_header();
 
 ?>
 
-<section class="banner"class="parallax-window" data-iosFix="false" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url( 'full' ); ?>">
-<div class="overlay"></div>
-<div class="container">
+<section class="banner" class="parallax-window" data-iosFix="false" data-parallax="scroll" data-image-src="<?php the_post_thumbnail_url( 'full' ); ?>">
+	<div class="overlay"></div>
+	<div class="container"></div>
 
-
-
-
-
-</div>
-
-<div class="site-title animated fadeInUp">
-	<h1 class=""><?php the_field('sidtitel'); ?></h1>
-	<div class="cta">
-		<a href="tel:030403"><i class="fa fa-phone" aria-hidden="true"></i><h2>Ring oss idag: 08-702 01 81</h2></a>
+	<div class="site-title animated fadeInUp">
+		<h1 class=""><?php the_field('sidtitel'); ?></h1>
+		<!-- <div class="cta">
+			<a href="tel:030403"><i class="fa fa-phone" aria-hidden="true"></i><h2>Ring oss idag: 08-702 01 81</h2></a>
+		</div> -->
 	</div>
-	</div>
-
-
 </section>
+<div class="after-banner">
+	<div class="container">
+		<div class="col-xs-12 text-center">
+			<a href="tel:030403"><i class="fa fa-phone" aria-hidden="true"></i><h2>Ring oss idag: 08-702 01 81</h2></a>
+		</div>
+	</div>
+</div>
 
 
 <section class="section-gray">

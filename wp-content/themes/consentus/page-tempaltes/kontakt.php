@@ -77,7 +77,7 @@ get_header();
       <div class="col-md-4">
         <div class="box-wrap">
           <div class="form">
-            <h3 class="kontakt-title">kontaktformulär</h3>
+            <h3 class="kontakt-title">Kontaktformulär</h3>
             <?php echo do_shortcode(the_field('kontaktformular'));?>
           </div>
         </div>

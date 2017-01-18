@@ -142,6 +142,31 @@ section.banner h3 {
 .banner h1,h3{
     text-align: center;
 }
+
+.after-banner {
+    background: #76c0ea;
+    color: #fff;
+}
+
+.after-banner a {
+    color: #fff;
+}
+
+.after-banner h2, 
+.after-banner i {    
+    display: inline-block;
+    margin: 15px 0;
+}
+
+.after-banner i {
+    font-size: 20px;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 10px;
+    margin-right: 10px;
+}
+
 .section-blue{
     background-color: #2A6598;
     padding: 90px 0px;
@@ -175,7 +200,7 @@ section.banner h3 {
     clear: rigt;
 }
 .overlay {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.12);
     height: 100%;
     position: absolute;
     width: 100%;
@@ -1060,4 +1085,5 @@ div#wpcf7-f84-o1{
     color: white;
     margin: 0px;
     font-size: 30px;
-    align-self: center      
+    align-self: center
+}
