@@ -48,11 +48,12 @@ get_header();
 </div>
 <div class="border-wrap" id="awards">
 	<div class="row">
-		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/certified1.gif"/></div>
+		<div class="col-xs-12">
+			<?php the_field('home-bottom'); ?>			
+		</div>
+		<?php /*<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/certified1.gif"/></div>
 		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/certified2.gif"/></div>
-		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/gasell_vinnare2009.gif"/></div>
-
-
+		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/gasell_vinnare2009.gif"/></div> */ ?>
 	</div>
 
 </div>

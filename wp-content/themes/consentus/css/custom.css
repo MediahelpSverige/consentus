@@ -649,18 +649,19 @@ section.section-blue h2 {
 }
 
 footer{
-        overflow: auto;
-        background-color: #000000;
-        color: #333;
-        border-top: 1px solid rgba(97, 97, 97, 0.5);
-        padding: 20px 0px;
-        text-align: center;
+    /*overflow: auto;*/
+    background-color: #000000;
+    color: #333;
+    border-top: 1px solid rgba(97, 97, 97, 0.5);
+    padding: 20px 0px;
+    text-align: center;
 }
 
 footer p{
     color: white;
     font-family: montserrat;
     font-size: 16px;
+    display: inline-block;
 }
 
 footer span{
