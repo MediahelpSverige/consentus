@@ -4,11 +4,13 @@ Template name: kontakt
 */
 get_header();
 ?>
-<script src="<?php bloginfo( 'template_url' ); ?>/dist/js/map.js"></script>
+<?php /* <script src="<?php bloginfo( 'template_url' ); ?>/dist/js/map.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAGCZgUR-m108imr_y_SsntCRvQ8MgHcP0&libraries=places&callback=initMap"
     async defer></script>
 <div class="map-banner">
-	<div id="map"></div>
+	<div id="map"></div> */ ?>
+
+	<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d509.5110026563609!2d18.0906341!3d59.2821194!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f78318255f3fb%3A0x94b9a738f5e2ca7a!2sConsentus+Oil+AB!5e0!3m2!1ssv!2sse!4v1485249518815" height="350" frameborder="0" style="border:0; width:100%; max-width:100%;margin-top:75px;" allowfullscreen></iframe>
 
 <div class="container">
 	<div class="header-logo">

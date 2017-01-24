@@ -14,6 +14,9 @@ h1,h2,h3,h4{
     font-family: 'Montserrat', sans-serif;
     /* font-size: 1.2em; */
 }
+.home-h1 {
+    color: #000 !important;
+}
 img{
     max-width: 100%;
     height: auto;
@@ -671,7 +674,7 @@ footer span{
 
 
 footer .textwidget{
-        display: block;
+    display: block;
     color: white;
     text-align: center;
     font-size: 17px;

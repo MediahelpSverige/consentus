@@ -2,7 +2,7 @@
 
 function initMap() {
         // Styles a map in night mode.
-        var consentus = new google.maps.LatLng(59.2821772,18.0907292)
+        var consentus = new google.maps.LatLng(59.2821194,18.0906341);
         var map = new google.maps.Map(document.getElementById('map'), {
           center: consentus,
           zoom: 16,
@@ -19,7 +19,7 @@ function initMap() {
     "elementType": "labels.icon",
     "stylers": [
       {
-        "visibility": "off"
+        "visibility": "z"
       }
     ]
   },
