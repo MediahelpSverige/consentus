@@ -27,44 +27,43 @@ get_header();
 <section class="section-gray">
 
 	<div class="container">
-	<div class="row">
+		<div class="row">
 
 
 
-<div class="col-md-8">
-			<div class="border-wrap">
-		<?php
+			<div class="col-sm-8 col-xs-12">	
+				<div class="border-wrap">
+					<?php
+						if ( have_posts() ) {
+							while ( have_posts() ) {
+								the_post();
+								//
+								// Post Content here
+								the_content();
+								//
+							} // end while
+						} // end if
+					?>
+				</div>
+			</div>
 
-			if ( have_posts() ) {
-				while ( have_posts() ) {
-					the_post();
-					//
-					// Post Content here
-					the_content();
-					//
-				} // end while
-			} // end if
-?>
-</div>
-<div class="border-wrap" id="awards">
-	<div class="row">
-		<div class="col-xs-12">
-			<?php the_field('home-bottom'); ?>			
+			<div class="col-sm-4 hidden-xs sidebar">
+				<?php dynamic_sidebar('home_right_1');?>
+			</div>
 		</div>
-		<?php /*<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/certified1.gif"/></div>
-		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/certified2.gif"/></div>
-		<div class="col-md-4"><img src="<?php site_url(); ?>/wp-content/uploads/2016/11/gasell_vinnare2009.gif"/></div> */ ?>
-	</div>
 
-</div>
-</div>
-<div class="sidebar">
-	<?php dynamic_sidebar('home_right_1');?>
-</div>
-</div>
+		<div class="col-sm-8 col-xs-12">
+			<div class="border-wrap" id="awards">
+				<div class="row">
+					<div class="col-xs-12">
+						<?php the_field('home-bottom'); ?>			
+					</div>
+				</div>
+			</div>			
+		</div>
 	</div>
-	</section>
-	<div class="clearfix"></div>
+</section>
+<div class="clearfix"></div>
 <!--
 	<section class="section-blue">
 		<div class="container"><div class="main-text-wrap"><i class="fa fa-clock-o"></i><h2>Vårt kontor i Bålsta har öppet vardagar 08:30-16:30.</h2></div></div>
