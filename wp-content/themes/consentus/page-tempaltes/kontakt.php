@@ -47,7 +47,8 @@ get_header();
 				//print_r($query8);
 				while ( $query8->have_posts() ) : $query8->the_post(); ?>
 				<div class="coworker col-md-4 col-sm-4 col-xs-6">
-					<div class="coworker-img" style="background-image:url('<?php the_post_thumbnail_url('medium'); ?>')">
+					<div class="coworker-img">
+						<?php the_post_thumbnail(); ?>
 					</div>
 					<div class="coworker-content">
 					<?php the_title('<h4 class="coworker-title">', '</h4>');  ?>
